@@ -10,17 +10,19 @@ pub struct Hello;
 /// ```
 /// use worlds_simplest_kata::Hello;
 ///
-/// let hello = Hello::hello("everyone".to_string());
+/// let hello = Hello::hello("everyone");
 /// assert_eq!("Hello, everyone!", hello);
 ///
 /// ```
 impl Hello {
-    pub fn hello(name: String) -> String {
-        format!("Hello, {}!", name)
+    #[must_use]
+    pub fn hello(name: &str) -> String {
+        format!("Hello, {name}!")
     }
 
+    #[must_use]
     pub fn hello_world() -> String {
-        Hello::hello("world".to_string())
+        Hello::hello("world")
     }
 }
 
